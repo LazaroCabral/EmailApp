@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{/fragments::default-head}"></head>
+	<body>
+		<nav th:replace="~{/fragments::navbar}"></nav>
+		<div class="container">
+			<form class="form-group align-content-center mt-5" th:object="${NewUser}" th:action="@{/createuser}" method="POST">
+				<label for="cpf">cpf:</label>
+				<input th:field="*{cpf}"/>
+				<label for="nome">nome:</label>
+				<input th:field="*{nome}"/>
+				<label for="email">email:</label>
+				<input th:field="*{email}"/>
+				<button>enviar</button>
+			</form>
+		</div>
+	</body>	
+</html>
