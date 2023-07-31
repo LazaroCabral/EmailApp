@@ -8,4 +8,4 @@ DB: mySql
 Back-end: Java
 <br>
 <br>
-Front-end: HTML, CSS with Bootstrap and javascript with Jquery 
+Front-end: HTML, CSS with Bootstrap, thymeleaf and javascript with Jquery 
