@@ -10,12 +10,18 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
+@EqualsAndHashCode
 @MappedSuperclass
+@AllArgsConstructor
 public abstract class AbstractEmail<T> {
 	
 	@Id
@@ -35,19 +41,15 @@ public abstract class AbstractEmail<T> {
 		this.setSubject(subject);
 	}
 
-	public AbstractEmail(String emailModelName, Conta conta, String subject) {
+	public AbstractEmail(String emailModelName, Account account, String subject) {
 		this.emailEmbeddable.setEmailModelName(emailModelName);
-		this.emailEmbeddable.setConta(conta);
+		this.emailEmbeddable.setAccount(account);
 		this.subject=subject;
 	}
 	
 	public AbstractEmail(EmailEmbeddable emailEmbeddable, String subject) {
 		this.emailEmbeddable=emailEmbeddable;
 		this.subject=subject;
-	}
-	
-	public static void p() {
-		
 	}
 
 }

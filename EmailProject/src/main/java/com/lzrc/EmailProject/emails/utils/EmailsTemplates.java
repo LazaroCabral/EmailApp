@@ -1,4 +1,4 @@
-package com.lzrc.EmailProject.emails.service;
+package com.lzrc.EmailProject.emails.utils;
 
 import java.io.File;
 import java.io.IOException;

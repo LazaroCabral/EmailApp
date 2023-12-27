@@ -6,6 +6,8 @@ package com.lzrc.EmailProject.db;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.lzrc.EmailProject.email.DTO.EmailError;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -26,7 +28,7 @@ public class ManuallyEmailErrors extends AbstractEmailErrors<ManuallyEmail>{
 		super();
 	}
 
-	public ManuallyEmailErrors(LocalDateTime data, String cause, ManuallyEmail email) {
+	public ManuallyEmailErrors(LocalDateTime data, EmailError cause, ManuallyEmail email) {
 		super(data, cause, email);
 	}
 	

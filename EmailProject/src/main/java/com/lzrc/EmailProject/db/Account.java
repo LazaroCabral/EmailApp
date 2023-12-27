@@ -5,37 +5,39 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
-public class Conta {
+@AllArgsConstructor
+public class Account {
 	
 	@Id
 	private String cpf;
 	private String name;
 	private String email;
 	
-	@OneToMany(mappedBy = "emailEmbeddable.conta", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "emailEmbeddable.account", cascade = CascadeType.ALL)
 	private List<Email> customAutomatizedEmails;
 	
 	
-	public Conta() {}
+	public Account() {}
 	
-	public Conta(String name, String email, List<Email> customAutomatizedEmails) {
+	public Account(String name, String email, List<Email> customAutomatizedEmails) {
 		this.name=name;
 		this.email=email;
 		this.customAutomatizedEmails=customAutomatizedEmails;
 	}
 	
-	public Conta(String name, String email) {
+	public Account(String name, String email) {
 		this.name=name;
 		this.email=email;
 	}
 	
-	public Conta(String cpf, String name, String email) {
+	public Account(String cpf, String name, String email) {
 		this.cpf = cpf;
 		this.name = name;
 		this.email = email;

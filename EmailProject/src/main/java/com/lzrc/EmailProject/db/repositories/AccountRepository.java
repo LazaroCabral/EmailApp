@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import com.lzrc.EmailProject.db.Conta;
+import com.lzrc.EmailProject.db.Account;
 
 @Repository
-public interface ContaRepository extends JpaRepository<Conta, String>{
+public interface AccountRepository extends JpaRepository<Account, String>{
 	
 	
 }

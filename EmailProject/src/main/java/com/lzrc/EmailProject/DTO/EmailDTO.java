@@ -1,4 +1,4 @@
-package com.lzrc.EmailProject.DTO;
+package com.lzrc.EmailProject.dto;
 
 public class EmailDTO {
 

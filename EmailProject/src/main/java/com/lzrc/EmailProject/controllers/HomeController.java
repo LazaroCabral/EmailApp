@@ -32,14 +32,15 @@ import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.lzrc.EmailProject.DTO.ContasDTORequest;
-import com.lzrc.EmailProject.DTO.EmailDTO;
-import com.lzrc.EmailProject.DTO.NewUser;
-import com.lzrc.EmailProject.DTO.PostEmail;
-import com.lzrc.EmailProject.db.Conta;
-import com.lzrc.EmailProject.db.custom.repositories.CustomContaRepository;
-import com.lzrc.EmailProject.emails.service.EmailsTemplates;
-import com.lzrc.EmailProject.emails.service.SendEmail;
+import com.lzrc.EmailProject.db.Account;
+import com.lzrc.EmailProject.db.custom.repositories.CustomAccountRepository;
+import com.lzrc.EmailProject.dto.AccountsDTORequest;
+import com.lzrc.EmailProject.dto.EmailDTO;
+import com.lzrc.EmailProject.dto.NewUser;
+import com.lzrc.EmailProject.dto.PostEmail;
+import com.lzrc.EmailProject.email.DTO.TypeEmailErrorDTO;
+import com.lzrc.EmailProject.emails.utils.EmailsTemplates;
+import com.lzrc.EmailProject.emails.utils.SendEmail;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transactional;
@@ -47,14 +48,8 @@ import jakarta.transaction.Transactional;
 @Controller
 public class HomeController {
 	
-	@Value("${default_email_model}")
-	String defaultEmailModel;
-	
-	@Value("${default_email_subject}")
-	String defaultEmailSubject;
-	
 	@Autowired
-	CustomContaRepository customContaRepository;
+	CustomAccountRepository customAccountRepository;
 
 	@Autowired
 	JavaMailSender javaMailSender;
@@ -63,14 +58,14 @@ public class HomeController {
 	SendEmail sendEmail;
 	
 	@Autowired
-	EmailsTemplates emailModel;
+	EmailsTemplates emailsTemplates;
 	
 	@GetMapping("/editmodel")
 	public ModelAndView getInsertEmails() {
 		ModelAndView mv=new ModelAndView("email_model");
 		String model="";
 		try {
-			model=emailModel.getEmailTemplate(defaultEmailModel);
+			model=emailsTemplates.getEmailTemplate(sendEmail.getDefaultEmailModel());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -84,8 +79,8 @@ public class HomeController {
 	@PostMapping("/editmodel")
 	public ModelAndView postInsertEmails(EmailDTO emailDTO) {
 		try {
-			this.emailModel.editEmailTemplate(defaultEmailModel, emailDTO.getMessage());
-			this.emailModel.getEmailTemplate(defaultEmailModel);
+			this.emailsTemplates.editEmailTemplate(sendEmail.getDefaultEmailModel(), emailDTO.getMessage());
+			this.emailsTemplates.getEmailTemplate(sendEmail.getDefaultEmailModel());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -96,35 +91,9 @@ public class HomeController {
 	@GetMapping("/sendnow")
 	public ModelAndView sendEmails(ModelAndView modelAndView) {
 		modelAndView.setViewName("send_Email");
-		ContasDTORequest contasDTORequest=new ContasDTORequest(customContaRepository.findAll(), 0, false, this.emailModel.getEmailsTemplates(), defaultEmailSubject);
-		
-		modelAndView.addObject("ContasDTORequest", contasDTORequest);
-		return modelAndView;
-	}
-	
-	@PostMapping("/sendnow")
-	public ModelAndView sendEmails(HttpSession httpSession,
-			ContasDTORequest contasDTORequest, RedirectAttributes redirectAttributes, ModelAndView modelAndView) {
-		modelAndView.setViewName("redirect:sendnow");
-		
-		List<Conta> contas=new ArrayList();
-		try {
-			for (Conta conta : contasDTORequest.getContas()) {
-				
-				Optional<Conta> c=customContaRepository.findById(conta.getCpf());
-				contas.add(c.get());
-			}
-			
-			int emailFails=sendEmail.sendEmails(contas, contasDTORequest.getEmailsModel()[0], contasDTORequest.getSubject());
-			redirectAttributes.addFlashAttribute("totalSelectedAccounts", contasDTORequest.getContas().size());
-			redirectAttributes.addFlashAttribute("sendEmailFails", emailFails);
-			
-		} catch (IOException e) {
-			System.out.println("-------------email error-------------");
-			redirectAttributes.addFlashAttribute("findEmailModelError", "Modelo de email não encontrado!!");
-			e.printStackTrace();
-		}
-
+//		AccountsDTORequest accountsDTORequest=new AccountsDTORequest(customAccountRepository.findAll(), 0, false, this.emailsTemplates.getEmailsTemplates(), sendEmail.getDefaultEmailSubject());
+//		
+//		modelAndView.addObject("ContasDTORequest", accountsDTORequest);
 		return modelAndView;
 	}
 	

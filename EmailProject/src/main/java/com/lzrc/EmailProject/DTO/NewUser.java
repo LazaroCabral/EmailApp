@@ -1,4 +1,4 @@
-package com.lzrc.EmailProject.DTO;
+package com.lzrc.EmailProject.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +8,6 @@ import lombok.Setter;
 public class NewUser {
 
 	String cpf;
-	String nome;
+	String name;
 	String email;
 }

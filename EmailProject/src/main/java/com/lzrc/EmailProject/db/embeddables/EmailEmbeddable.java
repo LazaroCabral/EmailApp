@@ -1,31 +1,35 @@
 package com.lzrc.EmailProject.db.embeddables;
 
-import com.lzrc.EmailProject.db.Conta;
+import com.lzrc.EmailProject.db.Account;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToOne;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @Embeddable
+@ToString
+@EqualsAndHashCode
 public class EmailEmbeddable {
 	
 	private String emailModelName;
 	@ManyToOne
-	private Conta conta;
+	private Account account;
 	
 	public EmailEmbeddable() {}
 	
-	public EmailEmbeddable(String modelMessage, Conta conta) {
+	public EmailEmbeddable(String modelMessage, Account account) {
 		this.emailModelName=modelMessage;
-		this.conta=conta;
+		this.account=account;
 	}
 	
-	public EmailEmbeddable(Conta conta) {
-		this.conta=conta;
+	public EmailEmbeddable(Account account) {
+		this.account=account;
 	}
 }

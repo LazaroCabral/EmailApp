@@ -21,8 +21,8 @@ public class ManuallyEmail extends AbstractEmail<ManuallyEmailErrors>{
 		// TODO Auto-generated constructor stub
 	}
 
-	public ManuallyEmail(String emailModelName, Conta conta, String subject) {
-		super(emailModelName, conta, subject);
+	public ManuallyEmail(String emailModelName, Account account, String subject) {
+		super(emailModelName, account, subject);
 		// TODO Auto-generated constructor stub
 	}
 

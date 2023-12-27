@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head th:replace="~{/fragments::default-head}">
-   <title>test</title> 
+   <title>test</title>
+   
+</head>
+<head>
+    <script type="module" src="/js/send-email/main.js"></script> 
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -16,33 +20,38 @@
         <label>email:</label>
         <input/>
     </form>-->
-        <form class="form mt-5" th:object="${ContasDTORequest}" th:action="@{/sendnow}" method="POST">
-            <label for="emailsModel" class="col">Modelo de email</label>
-            <select class="col-2" th:field="*{emailsModel}">
-                <option th:each="emailModel : *{emailsModel}" th:value="${emailModel}" th:text="${emailModel}"></option>
+        <!--form class="form mt-5" th:object="${ContasDTORequest}" th:action="@{/sendnow}" method="POST"-->
+            <label for="email-templates" class="col">Modelo de email</label>
+            <select id="email-templates" class="col-2">
+                <!--option th:each="emailModel : *{emailsModel}" th:value="${emailModel}" th:text="${emailModel}"></option-->
             </select>
-            <label for="subject" class="col">Assunto :</label>
-            <input type="text" class="col" th:field="*{subject}"/>
-            <div th:if="${sendEmailFails}!=null and ${sendEmailFails}!=0" class="alert alert-danger mt-2" th:text="${sendEmailFails}+' email(s) não enviados de '+${totalSelectedAccounts}"></div>
-            <div th:if="${sendEmailFails}!=null and ${sendEmailFails}==0" class="alert alert-success" >todos os emails foram enviados com sucesso!!</div>
+            <label for="subject-section" class="row"> Assunto :</label>
+            <section id="subject-section" class="col-2">
+            </section>
+            <!--div th:if="${sendEmailFails}!=null and ${sendEmailFails}!=0" class="alert alert-danger mt-2" th:text="${sendEmailFails}+' email(s) não enviados de '+${totalSelectedAccounts}"></div>
+            <div th:if="${sendEmailFails}!=null and ${sendEmailFails}==0" class="alert alert-success" >todos os emails foram enviados com sucesso!!</div-->
+            <div id="select-all-accounts-div">                
+                <label for="select-all-accounts-checkbox">selecionar todos</label>
+                <input id="select-all-accounts-checkbox" type="checkbox"/>
+            </div>
             <table class="table table-dark table-striped table-b">
-                <tbody>
+                <button id="back-page" class="col">back</button>
+                <button id="next-page" class="col">next</button>                
+                <thead>
                     <tr>
                         <th></th>
                         <th>nome</th>
                         <th>cpf</th>
                         <th>email</th>
                     </tr>
-                    <tr th:if="*{contas}!=null" th:each="conta : *{contas}">
-                        <td><input th:field="*{contas}" th:value="${conta.cpf}" type="checkbox"/></td>
-                        <td th:text="${conta.name}"></td> 
-                        <td th:text="${conta.cpf}"></td> 
-                        <td th:text="${conta.email}"></td>
-                    </tr>
+                </thead>
+                <tbody id="tbody-listOfAccounts">
                 </tbody>
             </table>
-            <button type="submit">enviar</button>     
-        </form>
-    
+            <button id="s">selected</button>
+            <button id="submit-accounts" type="submit">enviar</button> 
+            <!--section id="s"></section-->    
+        <!--/form-->
+        
 </body>
 </html>

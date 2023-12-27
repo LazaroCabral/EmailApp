@@ -12,5 +12,4 @@ import com.lzrc.EmailProject.db.embeddables.EmailEmbeddable;
 @Repository
 public interface EmailRepository extends JpaRepository<Email, Long> {
 	
-
 }
