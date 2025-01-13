@@ -1,9 +1,6 @@
 package com.lzrc.EmailProject.db;
 
 import java.time.LocalDateTime;
-import java.util.List;
-
-import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.lzrc.EmailProject.email.DTO.EmailError;

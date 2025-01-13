@@ -1,16 +1,10 @@
-/**
- * 
- */
 package com.lzrc.EmailProject.db;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import com.lzrc.EmailProject.email.DTO.EmailError;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 

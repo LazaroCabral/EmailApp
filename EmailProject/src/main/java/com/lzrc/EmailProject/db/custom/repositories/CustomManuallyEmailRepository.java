@@ -7,9 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lzrc.EmailProject.db.Email;
 import com.lzrc.EmailProject.db.ManuallyEmail;
-import com.lzrc.EmailProject.db.embeddables.EmailEmbeddable;
 import com.lzrc.EmailProject.db.pattern.repositories.EmailPatternMethods;
-import com.lzrc.EmailProject.db.repositories.EmailRepository;
 import com.lzrc.EmailProject.db.repositories.ManuallyEmailRepository;
 
 @Repository

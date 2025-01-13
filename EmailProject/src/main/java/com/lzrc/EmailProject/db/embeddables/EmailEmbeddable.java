@@ -3,8 +3,6 @@ package com.lzrc.EmailProject.db.embeddables;
 import com.lzrc.EmailProject.db.Account;
 
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToOne;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.lzrc.EmailProject.db.Email;
-import com.lzrc.EmailProject.db.embeddables.EmailEmbeddable;
 import com.lzrc.EmailProject.db.pattern.repositories.EmailPatternMethods;
 import com.lzrc.EmailProject.db.repositories.EmailRepository;
 

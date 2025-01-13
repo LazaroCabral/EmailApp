@@ -1,7 +1,5 @@
 package com.lzrc.EmailProject.db.entity.factory;
 
-import java.lang.reflect.Constructor;
-
 import org.springframework.objenesis.instantiator.basic.NewInstanceInstantiator;
 
 import com.lzrc.EmailProject.db.AbstractEmail;

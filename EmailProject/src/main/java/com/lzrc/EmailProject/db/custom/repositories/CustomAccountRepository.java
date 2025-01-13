@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import com.lzrc.EmailProject.db.Account;
 import com.lzrc.EmailProject.db.repositories.AccountRepository;
