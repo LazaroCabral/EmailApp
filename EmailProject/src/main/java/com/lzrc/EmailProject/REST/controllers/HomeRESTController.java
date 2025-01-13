@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -18,35 +19,14 @@ import com.lzrc.EmailProject.REST.DTO.SendNowDTO;
 import com.lzrc.EmailProject.REST.DTO.SendNowPOSTDTORequest;
 import com.lzrc.EmailProject.REST.DTO.SendNowPOSTDTOResponse;
 import com.lzrc.EmailProject.db.Account;
-import com.lzrc.EmailProject.db.ManuallyEmail;
-import com.lzrc.EmailProject.db.ManuallyEmailErrors;
 import com.lzrc.EmailProject.db.custom.repositories.CustomAccountRepository;
-import com.lzrc.EmailProject.db.custom.repositories.CustomManuallyEmailRepository;
 import com.lzrc.EmailProject.db.repositories.AccountRepository;
-import com.lzrc.EmailProject.db.repositories.ManuallyEmailErrorsRepository;
 import com.lzrc.EmailProject.emails.service.EmailsManager;
-import com.lzrc.EmailProject.emails.utils.EmailErrorsManager;
 import com.lzrc.EmailProject.emails.utils.EmailsTemplates;
-import com.lzrc.EmailProject.emails.utils.SendEmail;
 
 @RestController
 @RequestMapping("/rest")
 public class HomeRESTController {
-	
-	@Autowired
-	public HomeRESTController(AccountRepository accountRepository, SendEmail sendEmail,
-			CustomManuallyEmailRepository customManuallyEmailRepository,
-	ManuallyEmailErrorsRepository manuallyEmailErrorsRepository) {
-		
-		EmailErrorsManager<ManuallyEmail, ManuallyEmailErrors> emailErrorsManager=
-				new EmailErrorsManager(ManuallyEmail.class, ManuallyEmailErrors.class,
-						customManuallyEmailRepository, 
-						manuallyEmailErrorsRepository,
-						customManuallyEmailRepository);
-		
-		this.emailsManager=new EmailsManager(emailErrorsManager, accountRepository, sendEmail);
-	
-	}
 
 	@Autowired
 	CustomAccountRepository customAccountRepository;
@@ -56,7 +36,8 @@ public class HomeRESTController {
 	
 	@Autowired
 	EmailsTemplates emailsTemplates;
-	
+
+	@Qualifier("manuallyEmailsManager")
 	EmailsManager emailsManager;
 	
 	@GetMapping("/sendnow")
