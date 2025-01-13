@@ -32,12 +32,9 @@ import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.lzrc.EmailProject.DTO.EmailDTO;
 import com.lzrc.EmailProject.db.Account;
 import com.lzrc.EmailProject.db.custom.repositories.CustomAccountRepository;
-import com.lzrc.EmailProject.dto.AccountsDTORequest;
-import com.lzrc.EmailProject.dto.EmailDTO;
-import com.lzrc.EmailProject.dto.NewUser;
-import com.lzrc.EmailProject.dto.PostEmail;
 import com.lzrc.EmailProject.email.DTO.TypeEmailErrorDTO;
 import com.lzrc.EmailProject.emails.utils.EmailsTemplates;
 import com.lzrc.EmailProject.emails.utils.SendEmail;

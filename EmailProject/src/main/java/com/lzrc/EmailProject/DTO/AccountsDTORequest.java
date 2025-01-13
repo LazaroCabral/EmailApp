@@ -1,15 +1,8 @@
-package com.lzrc.EmailProject.dto;
+package com.lzrc.EmailProject.DTO;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
-
 import com.lzrc.EmailProject.db.Account;
-import com.lzrc.EmailProject.emails.utils.EmailsTemplates;
 
 import lombok.Getter;
 import lombok.Setter;

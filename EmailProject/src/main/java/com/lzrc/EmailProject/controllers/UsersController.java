@@ -1,6 +1,5 @@
 package com.lzrc.EmailProject.controllers;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.lzrc.EmailProject.DTO.NewUser;
 import com.lzrc.EmailProject.db.Account;
 import com.lzrc.EmailProject.db.Email;
 import com.lzrc.EmailProject.db.custom.repositories.CustomAccountRepository;
 import com.lzrc.EmailProject.db.embeddables.EmailEmbeddable;
-import com.lzrc.EmailProject.dto.NewUser;
 
 import jakarta.transaction.Transactional;
 

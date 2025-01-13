@@ -1,6 +1,4 @@
-package com.lzrc.EmailProject.dto;
-
-import jakarta.persistence.Column;
+package com.lzrc.EmailProject.DTO;
 
 public class PostEmail {
 

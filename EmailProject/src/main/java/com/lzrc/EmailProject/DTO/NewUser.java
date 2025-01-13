@@ -1,4 +1,4 @@
-package com.lzrc.EmailProject.dto;
+package com.lzrc.EmailProject.DTO;
 
 import lombok.Getter;
 import lombok.Setter;
