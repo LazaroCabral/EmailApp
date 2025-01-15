@@ -53,13 +53,13 @@ public class HomeController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return new ModelAndView("redirect:/editmodel");
 	}
 	
 	@GetMapping("/sendnow")
 	public ModelAndView sendEmails(ModelAndView modelAndView) {
-		modelAndView.setViewName("send_Email");
+		modelAndView.setViewName("send_email");
 //		AccountsDTORequest accountsDTORequest=new AccountsDTORequest(customAccountRepository.findAll(), 0, false, this.emailsTemplates.getEmailsTemplates(), sendEmail.getDefaultEmailSubject());
 //		
 //		modelAndView.addObject("ContasDTORequest", accountsDTORequest);
