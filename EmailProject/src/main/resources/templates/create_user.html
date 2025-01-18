@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-	<head th:replace="~{/fragments::default-head}"></head>
+	<head th:replace="~{./fragments::default-head}"></head>
 	<body>
-		<nav th:replace="~{/fragments::navbar}"></nav>
+		<nav th:replace="~{./fragments::navbar}"></nav>
 		<div class="container">
 			<form class="form-group align-content-center mt-5" th:object="${NewUser}" th:action="@{/createuser}" method="POST">
 				<label for="cpf">cpf:</label>
