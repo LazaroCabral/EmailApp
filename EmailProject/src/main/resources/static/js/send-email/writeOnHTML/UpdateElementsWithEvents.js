@@ -1,6 +1,6 @@
 import { selectedAccountsManager, tableBodyIdAccounts } from "../main.js";
-import { SelectAll } from "../buttons/selectAll.js";
-import WriteOnHTML from "./writeOnHTML.js";
+import { SelectAll } from "../buttons/SelectAll.js";
+import WriteOnHTML from "./WriteOnHTML.js";
 
 export class UpdateElementsWithEvents{
 

@@ -1,9 +1,9 @@
 import AJAXUtils from './AJAXUtils.js';
 import { BackAndNext } from './buttons/BackAndNext.js';
 import SelectedAccountsManager from './Accounts/SelectedAccountsManager.js';
-import { SelectAll } from './buttons/selectAll.js';
+import { SelectAll } from './buttons/SelectAll.js';
 import { AccountsPOSTDTO } from './Accounts/DTOs/AccountsPOSTDTO.js';
-import WriteOnHTML from './writeOnHTML/writeOnHTML.js';
+import WriteOnHTML from './writeOnHTML/WriteOnHTML.js';
 //import { jquery } from 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js';
 
 var url='http://localhost:8080/rest/sendnow';

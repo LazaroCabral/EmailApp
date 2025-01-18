@@ -1,5 +1,5 @@
 
-import ToHTML from "../format/toHTML.js";
+import ToHTML from "../format/ToHTML.js";
 
 export default class WriteOnHTML{
 
