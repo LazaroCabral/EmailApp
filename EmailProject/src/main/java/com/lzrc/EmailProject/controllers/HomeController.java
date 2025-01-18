@@ -60,9 +60,6 @@ public class HomeController {
 	@GetMapping("/sendnow")
 	public ModelAndView sendEmails(ModelAndView modelAndView) {
 		modelAndView.setViewName("send_email");
-//		AccountsDTORequest accountsDTORequest=new AccountsDTORequest(customAccountRepository.findAll(), 0, false, this.emailsTemplates.getEmailsTemplates(), sendEmail.getDefaultEmailSubject());
-//		
-//		modelAndView.addObject("ContasDTORequest", accountsDTORequest);
 		return modelAndView;
 	}
 	
