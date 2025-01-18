@@ -70,8 +70,10 @@ public class HomeRESTController {
 	
 	@PostMapping("/sendnow")
 	public ResponseEntity<SendNowPOSTDTOResponse> postSendEmails(@RequestBody SendNowPOSTDTORequest sendNowPOSTDTORequest) {
-		SendNowPOSTDTOResponse sendNowPOSTDTOResponse=new SendEmailsCommand(sendNowPOSTDTORequest, this.emailsManager)
-			.execute();		
+		SendNowPOSTDTOResponse sendNowPOSTDTOResponse=new SendEmailsCommand(
+			sendNowPOSTDTORequest,
+			this.emailsManager,
+			this.accountRepository).execute();		
 		return ResponseEntity.ok(sendNowPOSTDTOResponse);
 	}
 	
