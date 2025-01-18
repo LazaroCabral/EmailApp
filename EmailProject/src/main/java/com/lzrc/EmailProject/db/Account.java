@@ -43,5 +43,16 @@ public class Account {
 		this.email = email;
 		
 	}	
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Account){
+			Account account= (Account) obj;
+			if(account.cpf.equals(this.cpf)){
+				return true;
+			}
+		}
+		return false;
+	}
 	
 }
