@@ -17,6 +17,7 @@ import com.lzrc.EmailProject.REST.DTO.ContaDTO;
 import com.lzrc.EmailProject.REST.DTO.SendNowDTO;
 import com.lzrc.EmailProject.REST.DTO.SendNowPOSTDTORequest;
 import com.lzrc.EmailProject.REST.DTO.SendNowPOSTDTOResponse;
+import com.lzrc.EmailProject.REST.commands.SendEmailsCommand;
 import com.lzrc.EmailProject.db.Account;
 import com.lzrc.EmailProject.db.ManuallyEmail;
 import com.lzrc.EmailProject.db.ManuallyEmailErrors;
@@ -69,9 +70,8 @@ public class HomeRESTController {
 	
 	@PostMapping("/sendnow")
 	public ResponseEntity<SendNowPOSTDTOResponse> postSendEmails(@RequestBody SendNowPOSTDTORequest sendNowPOSTDTORequest) {
-		
-		SendNowPOSTDTOResponse sendNowPOSTDTOResponse=this.emailsManager.sendManuallyEmails(sendNowPOSTDTORequest);
-		
+		SendNowPOSTDTOResponse sendNowPOSTDTOResponse=new SendEmailsCommand(sendNowPOSTDTORequest, this.emailsManager)
+			.execute();		
 		return ResponseEntity.ok(sendNowPOSTDTOResponse);
 	}
 	
