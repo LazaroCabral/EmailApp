@@ -2,6 +2,8 @@ package com.lzrc.EmailProject.emails.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.lzrc.EmailProject.db.Account;
 import com.lzrc.EmailProject.db.repositories.AccountRepository;
 import com.lzrc.EmailProject.email.DTO.TypeEmailErrorDTO;
