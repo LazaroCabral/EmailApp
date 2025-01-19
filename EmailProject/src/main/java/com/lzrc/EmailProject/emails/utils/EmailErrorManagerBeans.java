@@ -42,8 +42,8 @@ public class EmailErrorManagerBeans {
     @Bean(name = "manuallyEmailErrorsManager")
     public EmailErrorsManager<ManuallyEmail,ManuallyEmailErrors> getManuallyEmailErrorsManager(){
         return new EmailErrorsManager<>(
-            Email.class,
-            EmailErrors.class, 
+            ManuallyEmail.class,
+            ManuallyEmailErrors.class, 
             this.manuallyEmailRepository, 
             this.manuallyEmailErrorsRepository, 
             this.manuallyEmailRepository
