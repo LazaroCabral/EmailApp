@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lzrc</groupId>
-	<artifactId>EmailProject</artifactId>
+	<artifactId>emailproject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>EmailTest</name>
 	<description>application for managing and sending mass emails and automated emails</description>

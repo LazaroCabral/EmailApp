@@ -22,12 +22,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.lzrc.EmailProject.db.Email;
-import com.lzrc.EmailProject.db.custom.repositories.CustomEmailRepository;
-import com.lzrc.EmailProject.db.entity.factory.EntityEmailErrorsFactory;
-import com.lzrc.EmailProject.db.entity.factory.EntityEmailFactory;
-import com.lzrc.EmailProject.emails.utils.EmailsTemplates;
-import com.lzrc.EmailProject.emails.utils.SendEmail;
+import com.lzrc.emailproject.db.Email;
+import com.lzrc.emailproject.db.custom.repositories.CustomEmailRepository;
+import com.lzrc.emailproject.db.entity.factory.EntityEmailErrorsFactory;
+import com.lzrc.emailproject.db.entity.factory.EntityEmailFactory;
+import com.lzrc.emailproject.emails.utils.EmailsTemplates;
+import com.lzrc.emailproject.emails.utils.SendEmail;
 
 //@ActiveProfiles("test")
 @SpringBootTest(classes = EmailProjectApplicationTests.class)
