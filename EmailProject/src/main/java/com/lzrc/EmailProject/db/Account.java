@@ -56,5 +56,10 @@ public class Account {
 		}
 		return false;
 	}
+
+	@Override
+	public int hashCode() {
+		return this.cpf.hashCode();
+	}
 	
 }
