@@ -46,7 +46,9 @@ public class Account {
 
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Account){
+		if(this==obj) return true;
+		if(obj==null) return false;
+		if(obj.getClass().equals(this.getClass())){
 			Account account= (Account) obj;
 			if(account.cpf.equals(this.cpf)){
 				return true;
